@@ -78,7 +78,7 @@ function App() {
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Home"
+            name="HomeScreen"
             component={HomeScreen}
             options={{ headerShown: false }}
           />

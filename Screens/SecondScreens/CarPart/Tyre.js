@@ -71,7 +71,7 @@ const Tyre = ({ navigation }) => {
         activeOpacity={0.5}
       >
         <Text
-          onPress={() => addToCart('Tyre')}
+          onPress={() => addToCart('Tyre (Car)')}
           style={styles.buttonTextStyle_1}
         >
           Add to cart

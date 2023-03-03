@@ -23,7 +23,7 @@ export const populateMap = () => {
   addProduct({name: 'Battery', uri: require('./Image/battery_1.png'), price: 450});
   addProduct({name: 'Blades', uri: require('./Image/blades_1.png'), price: 300});
   addProduct({name: 'Oil Filter', uri: require('./Image/oil_1.png'), price: 200});
-  addProduct({name: 'Tyre', uri: require('./Image/tire_1.png'), price: 200});
+  addProduct({name: 'Tyre (Car)', uri: require('./Image/tire_1.png'), price: 200});
   addProduct({name: 'Allignments', uri: require('./Image/wheels_1.png'), price: 200});
   addProduct({name: 'Brakes', uri: require('./Image/brakes_1.png'), price: 200});
 
