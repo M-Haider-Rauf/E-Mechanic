@@ -1,7 +1,5 @@
-import {FloatingAction} from 'react-native-floating-action';
 import { useSelector } from 'react-redux';
-import {MaterialIcons} from 'react-native-vector-icons';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { FAB } from 'react-native-elements';
 
 export const CartIcon = (props) => {
@@ -15,6 +13,7 @@ export const CartIcon = (props) => {
         color="#4BC500"
         size="small"
         visible
+        titleStyle = {{color: color}}
         overlayColor="#454545"
         title={`${count}`}
         icon={{ name: "shopping-cart", color: "#fff" }}
