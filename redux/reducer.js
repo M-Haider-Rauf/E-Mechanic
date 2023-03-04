@@ -7,18 +7,19 @@ const changeProductCount = (list, product, increment) => {
     const clone = require('rfdc')();
     const newList = clone(list);
 
-    let found = false;
-    for (let i = 0; !found && i < newList.length; ++i) {
-        if (product == newList[i].id) {
-            newList[i].count += increment;
+    const idx = newList.findIndex((value => value.id === product));
 
-            if (newList[i].count <= 0) newList.splice(i, 1);
-
-            found = true;
-        }
+    if (idx < 0) {
+        newList.push({id: product, count: increment});
     }
+    else {
+        const product = newList[idx];
 
-    if (!found) newList.push({id: product, count: increment});
+        product.count += increment;
+
+        if (product.count <= 0) newList.splice(idx, 1);
+    }
+    
     return newList;
 }
 

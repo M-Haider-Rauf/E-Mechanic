@@ -3,27 +3,19 @@ import {
   StyleSheet,
   Text,
   Image,
-  ScrollView,
   TextInput,
-  Touchable,
   Alert
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import BottamBar from "./BottamBar";
-import Icon from "react-native-vector-icons/FontAwesome";
-import { useState, useEffect } from "react";
-// import Carousel from "react-native-snap-carousel";
+import { useEffect } from "react";
 
 import { getAuth, signOut } from "firebase/auth";
-import { TouchableOpacity } from "react-native-gesture-handler";
+
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 import {MaterialIcons} from 'react-native-vector-icons';
-import { FloatingAction } from "react-native-floating-action";
-import { useSelector } from "react-redux";
 import { CartIcon } from "../Components/CartIcon";
 
 const HomeScreen = ({navigation}) => {
-  const itemCount = useSelector(state => state.count);
 
   useEffect(
     () =>

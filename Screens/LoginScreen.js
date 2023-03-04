@@ -3,22 +3,19 @@ import {
   TextInput,
   View,
   Text,
-  ScrollView,
   Image,
   Keyboard,
   TouchableOpacity,
   KeyboardAvoidingView,
 } from "react-native";
-import AsyncStorage from 'react-native';
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {app} from '../Backend/config';
 
 const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-//  const [errortext, setErrortext] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const onHandleSubmit = () => {
     if (!email) {
@@ -32,7 +29,6 @@ const LoginScreen = ({ navigation }) => {
 
 
   const auth = getAuth(app);
-  let signed = true;
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {

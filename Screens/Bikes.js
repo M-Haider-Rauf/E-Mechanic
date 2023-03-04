@@ -7,10 +7,6 @@ import {
   TextInput,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import BottamBar from "./BottamBar";
-import Icon from "react-native-vector-icons/FontAwesome";
-import { useState } from "react";
-// import Carousel from "react-native-snap-carousel";
 
 const Bikes = ({ navigation }) => {
   return (

@@ -1,17 +1,13 @@
 import React from "react";
-import { View, Text, Pressable, PermissionsAndroid } from "react-native";
+import { View, Text, Pressable } from "react-native";
 
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Entypo from "react-native-vector-icons/Entypo";
 import { StyleSheet } from 'react-native';
-import {DestinationSearch} from './DestinationSearch';
 
-import {useNavigation} from '@react-navigation/native'
 
 const HomeSearch = () => {
-   const navigation = useNavigation();
-
 
   const goToSearch = () => {
     return;
