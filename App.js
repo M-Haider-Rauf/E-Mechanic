@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SplashScreen from "./Screens/SplashScreen";
+import SplashScreen_1 from "./Screens/SplashScreen_1";
 import LoginScreen from "./Screens/LoginScreen";
 import RegisterScreen from "./Screens/RegisterScreen";
 import HomeScreen from "./Screens/HomeScreen";
@@ -30,23 +31,20 @@ import Sprocket from "./Screens/SecondScreens/BikePart/Sprcocket";
 import SparkPlug from "./Screens/SecondScreens/BikePart/SparkPlug";
 import Caorborator from "./Screens/SecondScreens/BikePart/Carborator";
 import MapScreen from "./Screens/MapScreen";
-import { Provider } from 'react-redux';
+import { Provider } from "react-redux";
 
 import { initFirebase } from "./Backend/config";
-import {store} from './redux/store'
+import { store } from "./redux/store";
 import { populateMap, products } from "./util";
-import {CartScreen} from './Screens/CartScreen';
-
+import { CartScreen } from "./Screens/CartScreen";
 
 const Stack = createNativeStackNavigator();
-
-
 
 function App() {
   useEffect(() => {
     initFirebase();
     populateMap();
-  }, [])
+  }, []);
 
   return (
     <Provider store={store}>
@@ -57,7 +55,11 @@ function App() {
             component={SplashScreen}
             options={{ headerShown: false }}
           />
-
+          <Stack.Screen
+            name="SplashScreen_1"
+            component={SplashScreen_1}
+            options={{ headerShown: false }}
+          />
           <Stack.Screen
             name="MapScreen"
             component={MapScreen}

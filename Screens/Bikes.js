@@ -48,7 +48,7 @@ const Bikes = ({ navigation }) => {
         <Text style={styles.services}>Services</Text>
         <View style={styles.cars}>
           <Text
-            onPress={() => navigation.navigate("Home")}
+            onPress={() => navigation.navigate("HomeScreen")}
             style={{ fontWeight: "800", color: "#000" }}
           >
             Car Offers

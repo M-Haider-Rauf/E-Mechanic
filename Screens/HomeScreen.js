@@ -1,48 +1,40 @@
-import {
-  View,
-  StyleSheet,
-  Text,
-  Image,
-  TextInput,
-  Alert
-} from "react-native";
+import { View, StyleSheet, Text, Image, TextInput, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useEffect } from "react";
 
 import { getAuth, signOut } from "firebase/auth";
 
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
-import {MaterialIcons} from 'react-native-vector-icons';
+import { MaterialIcons } from "react-native-vector-icons";
 import { CartIcon } from "../Components/CartIcon";
 
-const HomeScreen = ({navigation}) => {
-
+const HomeScreen = ({ navigation }) => {
   useEffect(
     () =>
-      navigation.addListener('beforeRemove', (e) => {
+      navigation.addListener("beforeRemove", (e) => {
         // Prevent default behavior of leaving the screen
         e.preventDefault();
 
         // Prompt the user before leaving the screen
         Alert.alert(
-          'Log out?',
-          'You will be logged out of your account and have to log back in!',
+          "Log out?",
+          "You will be logged out of your account and have to log back in!",
           [
-            { text: "Stay", style: 'cancel', onPress: () => {} },
+            { text: "Stay", style: "cancel", onPress: () => {} },
             {
-              text: 'Log Out',
-              style: 'destructive',
-              onPress: () => { 
+              text: "Log Out",
+              style: "destructive",
+              onPress: () => {
                 signOut(getAuth());
-                console.log('Signed Out!');
+                console.log("Signed Out!");
                 navigation.dispatch(e.data.action);
-              }
+              },
             },
           ]
         );
-      }), []
+      }),
+    []
   );
-
 
   const auth = getAuth();
   const user = auth.currentUser;
@@ -50,17 +42,23 @@ const HomeScreen = ({navigation}) => {
   const displayName = user ? user.displayName : "N/AA";
 
   return (
-    <SafeAreaView style={{ height: "100%" }}>
+    <SafeAreaView style={{ height: "100%", backgroundColor: "#fff" }}>
       {/* <ScrollView> */}
       <View>
         <Pressable
           onPress={() => navigation.navigate("ProfileScreen")}
           style={{ width: 100, height: 100, position: "absolute" }}
         >
-          {
-            user.photoURL ? <Image source={{uri: user.photoURL}} style={styles.avatar} /> :
-            <MaterialIcons name='person' color='#4BC500' size={100} style={styles.avatar}/>
-          }
+          {user.photoURL ? (
+            <Image source={{ uri: user.photoURL }} style={styles.avatar} />
+          ) : (
+            <MaterialIcons
+              name="person"
+              color="#4BC500"
+              size={100}
+              style={styles.avatar}
+            />
+          )}
         </Pressable>
 
         <Image
@@ -73,10 +71,17 @@ const HomeScreen = ({navigation}) => {
           }}
         />
         <Text style={styles.proilename}>
-          Hola, <Text style={{ fontWeight: "bold" }}>{displayName}</Text>
+          Hello <Text style={{ fontWeight: "bold" }}>{displayName}</Text>
           {/* <Icon name="rocket" size={20} color = "#000"  /> */}
         </Text>
         <View style={styles.SectionStyle}>
+          <MaterialIcons
+            style={styles.searchIcon}
+            name="search"
+            color="#000000"
+            size={30}
+            marginBottom="5%"
+          />
           <TextInput
             style={styles.inputStyle}
             placeholder="Search Services"
@@ -89,6 +94,14 @@ const HomeScreen = ({navigation}) => {
             }
             underlineColorAndroid="#f000"
             blurOnSubmit={false}
+          />
+          <MaterialIcons
+            style={styles.micIcon}
+            name="mic"
+            color="#000000"
+            size={30}
+            marginBottom="5%"
+            marginLeft="10%"
           />
         </View>
         <Text style={styles.services}>Services</Text>
@@ -200,7 +213,7 @@ const HomeScreen = ({navigation}) => {
           </View>
         </View>
       </View>
-      <CartIcon navigation={navigation}/>
+      <CartIcon navigation={navigation} />
 
       {/* </ScrollView> */}
       {/* <BottamBar/> */}
@@ -228,6 +241,18 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     flexDirection: "row",
     color: "#000",
+  },
+  searchIcon: {
+    position: "absolute",
+    left: 10,
+    bottom: 7,
+    zIndex: 1,
+  },
+  micIcon: {
+    position: "absolute",
+    right: 10,
+    bottom: 7,
+    zIndex: 1,
   },
   h3: {
     borderBottomRightRadius: 10,
@@ -274,7 +299,7 @@ const styles = StyleSheet.create({
 
   SectionStyle: {
     flexDirection: "row",
-    height: 50,
+    height: 45,
     // marginTop: ,
     marginLeft: 35,
     marginRight: 35,
@@ -283,9 +308,9 @@ const styles = StyleSheet.create({
   inputStyle: {
     flex: 1,
     color: "#000",
-    backgroundColor: "white",
-    paddingLeft: 15,
-    paddingRight: 15,
+    backgroundColor: "#f3f3f3",
+    paddingLeft: 40,
+    paddingRight: 40,
     borderWidth: 1,
     borderRadius: 15,
     borderColor: "#dadae8",

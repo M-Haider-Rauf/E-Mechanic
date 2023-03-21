@@ -14,7 +14,7 @@ import { app } from "../Backend/config";
 import { useEffect, useState } from "react";
 import { getAuth } from "firebase/auth";
 
-const SplashScreen = ({ navigation }) => {
+const SplashScreen_1 = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -41,54 +41,58 @@ const SplashScreen = ({ navigation }) => {
         >
           we are where you are
         </Text>
-        <Text style={styles.h1}>
-          Find, Book and Call for {"\n"} Emergency Situations
-        </Text>
-        <Text style={styles.p1}>
-          You can book various services for your Vehicle Bike {"\n"}{" "}
-          electronically through mobile. And also you can get a {"\n"} mechanic
-          on road in emergency situations e.g., Puncture, Accident.
-        </Text>
+        <Text style={styles.h1}>Welcome to E-Mechanic</Text>
+
+        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+          <Text
+            // onPress={() => {
+            //   const user = getAuth(app).currentUser;
+
+            //   if (user) navigation.navigate("Home");
+            //   else navigation.navigate("LoginScreen");
+            // }}
+            style={styles.buttonTextStyle}
+          >
+            Register as a Mechanic?
+          </Text>
+        </TouchableOpacity>
         <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
           <Text
             onPress={() => {
               const user = getAuth(app).currentUser;
 
-              if (user) navigation.navigate("HomeScreen");
-              else navigation.navigate("SplashScreen_1");
+              if (user) navigation.navigate("Home");
+              else navigation.navigate("LoginScreen");
             }}
             style={styles.buttonTextStyle}
           >
-            Get Started
+            Register as a Local?
           </Text>
         </TouchableOpacity>
-        <Text></Text>
       </View>
 
       {/* <View style={styles.container}>
-      <Image
-        source={require('../Image/appLogo.png')}
-        style={{width: '70%', height:'30%', margin: 30,position:"absolute",top:'1%'}}
-      />
-      <Text style = {{paddingBottom:'5%', fontStyle:'italic'}}>
-      we are where you are
-      </Text>
-      <Text style ={styles.h1} >
-      Find, Book and Call for {'\n'} Emergency Situations
-      </Text>
-      <Text style = {styles.p1}>
-      You can book various services for
-your Vehicle / Bike {'\n'} electronically through mobile. And also you can get a {'\n'} mechanic on road in emergency situations e.g.,
-Puncture, Accident.
-      </Text>
-    
-      
-      
-    </View> */}
+        <Image
+          source={require('../Image/appLogo.png')}
+          style={{width: '70%', height:'30%', margin: 30,position:"absolute",top:'1%'}}
+        />
+        <Text style = {{paddingBottom:'5%', fontStyle:'italic'}}>
+        we are where you are
+        </Text>
+        <Text style ={styles.h1} >
+        Find, Book and Call for {'\n'} Emergency Situations
+        </Text>
+        <Text style = {styles.p1}>
+        You can book various services for
+  your Vehicle / Bike {'\n'} electronically through mobile. And also you can get a {'\n'} mechanic on road in emergency situations e.g.,
+  Puncture, Accident.
+        </Text>
+
+      </View> */}
     </SafeAreaView>
   );
 };
-export default SplashScreen;
+export default SplashScreen_1;
 
 const styles = StyleSheet.create({
   container: {
@@ -120,10 +124,10 @@ const styles = StyleSheet.create({
     borderColor: "#7DE24E",
     height: 50,
     alignItems: "center",
-    borderRadius: 10,
+    borderRadius: 5,
     marginLeft: 35,
     marginRight: 35,
-    marginTop: 100,
+    marginTop: 30,
     // marginBottom: 0,
     cursor: "pointer",
   },
@@ -131,5 +135,6 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     paddingVertical: 10,
     fontSize: 18,
+    fontWeight: "bold",
   },
 });
